@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>COCO + VAINILLA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat+Brush&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#1b1b1b;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.contenedor{
+width:360px;
+height:640px;
+background:
+linear-gradient(
+180deg,
+#fff176 0%,
+#ffd54f 30%,
+#9be15d 65%,
+#43a047 100%
+);
+position:relative;
+overflow:hidden;
+border-radius:25px;
+}
+
+.contenedor::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+top:-180px;
+left:-180px;
+background:
+radial-gradient(circle, rgba(255,255,255,0.18) 10%, transparent 11%);
+background-size:40px 40px;
+opacity:0.5;
+z-index:0;
+}
+
+.sol{
+width:180px;
+height:180px;
+background:#fff9c4;
+border-radius:50%;
+position:absolute;
+top:-50px;
+left:-40px;
+filter:blur(3px);
+opacity:0.8;
+z-index:0;
+animation:sol 4s infinite alternate;
+}
+
+@keyframes sol{
+0%{transform:scale(1);}
+100%{transform:scale(1.08);}
+}
+
+.palmeras{
+width:220px;
+height:180px;
+position:absolute;
+top:-20px;
+right:-70px;
+background:url(img/palmera.png);
+background-size:cover;
+z-index:2;
+animation:palmera 3s infinite alternate ease-in-out;
+}
+
+@keyframes palmera{
+0%{transform:rotate(-4deg);}
+100%{transform:rotate(5deg);}
+}
+
+.text1{
+position:absolute;
+top:100px;
+left:35px;
+font-family:'Caveat Brush',cursive;
+font-size:48px;
+color:#2e7d32;
+opacity:0;
+z-index:10;
+animation:texto1 7s infinite;
+}
+
+.text2{
+position:absolute;
+top:165px;
+left:20px;
+font-family:'Alfa Slab One',cursive;
+font-size:62px;
+color:white;
+line-height:60px;
+opacity:0;
+z-index:10;
+animation:texto2 7s infinite;
+text-shadow:4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.text3{
+position:absolute;
+top:240px;
+left:25px;
+font-family:'Alfa Slab One',cursive;
+font-size:70px;
+color:#fffde7;
+opacity:0;
+z-index:10;
+animation:texto3 7s infinite;
+text-shadow:4px 4px 10px rgba(0,0,0,0.3);
+}
+
+@keyframes texto1{
+0%{
+opacity:0;
+transform:translateY(-40px);
+}
+
+15%{
+opacity:1;
+transform:translateY(0);
+}
+
+45%{
+opacity:1;
+}
+
+60%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:0;
+}
+}
+
+@keyframes texto2{
+0%{
+opacity:0;
+transform:scale(0.5) rotate(-10deg);
+}
+
+20%{
+opacity:1;
+transform:scale(1) rotate(0deg);
+}
+
+45%{
+opacity:1;
+}
+
+65%{
+opacity:0;
+transform:scale(1.2);
+}
+
+100%{
+opacity:0;
+}
+}
+
+@keyframes texto3{
+0%{
+opacity:0;
+transform:translateX(-100px);
+}
+
+20%{
+opacity:1;
+transform:translateX(0);
+}
+
+50%{
+opacity:1;
+}
+
+70%{
+opacity:0;
+transform:translateX(100px);
+}
+
+100%{
+opacity:0;
+}
+}
+
+.coco1,.coco2,.coco3,.coco4,.coco5{
+position:absolute;
+background-size:cover;
+z-index:5;
+}
+
+.coco1{
+width:150px;
+height:150px;
+top:420px;
+left:-180px;
+background-image:url(img/coco1.png);
+animation:coco1 7s infinite;
+}
+
+@keyframes coco1{
+0%{
+left:-180px;
+transform:rotate(0deg);
+}
+
+25%{
+left:30px;
+transform:rotate(180deg);
+}
+
+50%{
+left:60px;
+transform:rotate(220deg);
+}
+
+70%{
+left:420px;
+transform:rotate(360deg);
+}
+
+100%{
+left:420px;
+}
+}
+
+.coco2{
+width:220px;
+height:220px;
+top:360px;
+right:-240px;
+background-image:url(img/coco2.png);
+animation:coco2 7s infinite;
+}
+
+@keyframes coco2{
+0%{
+right:-240px;
+transform:scale(0.5);
+}
+
+25%{
+right:40px;
+transform:scale(1);
+}
+
+50%{
+right:70px;
+transform:scale(1.05);
+}
+
+75%{
+right:420px;
+transform:scale(0.5);
+}
+
+100%{
+right:420px;
+}
+}
+
+.coco3{
+width:300px;
+height:300px;
+top:120px;
+left:30px;
+background-image:url(img/coco2.png);
+background-size:cover;
+transform:scale(0);
+animation:coco3 7s infinite;
+z-index:7;
+}
+
+@keyframes coco3{
+0%{
+transform:scale(0) rotate(-20deg);
+opacity:0;
+}
+
+55%{
+transform:scale(0);
+opacity:0;
+}
+
+75%{
+transform:scale(1.15) rotate(10deg);
+opacity:1;
+}
+
+100%{
+transform:scale(1) rotate(0deg);
+opacity:1;
+}
+}
+
+.coco4{
+width:170px;
+height:170px;
+top:-180px;
+left:90px;
+background-image:url(img/coco2.png);
+animation:coco4 7s infinite;
+z-index:6;
+}
+
+@keyframes coco4{
+0%{
+top:-200px;
+transform:rotate(0deg) scale(0.4);
+opacity:0;
+}
+
+20%{
+top:40px;
+transform:rotate(360deg) scale(1);
+opacity:1;
+}
+
+50%{
+top:70px;
+transform:rotate(390deg) scale(1.1);
+opacity:1;
+}
+
+75%{
+top:800px;
+transform:scale(0.5);
+opacity:0;
+}
+
+100%{
+top:800px;
+opacity:0;
+}
+}
+
+.coco5{
+width:130px;
+height:130px;
+bottom:-150px;
+left:220px;
+background-image:url(img/coco3.png);
+animation:coco5 7s infinite;
+}
+
+@keyframes coco5{
+0%{
+bottom:-200px;
+transform:rotate(0deg);
+opacity:0;
+}
+
+25%{
+bottom:120px;
+transform:rotate(180deg);
+opacity:1;
+}
+
+55%{
+bottom:180px;
+transform:rotate(250deg);
+opacity:1;
+}
+
+80%{
+bottom:800px;
+transform:rotate(360deg);
+opacity:0;
+}
+
+100%{
+opacity:0;
+}
+}
+
+.titulo{
+position:absolute;
+bottom:55px;
+width:100%;
+text-align:center;
+font-family:'Caveat Brush',cursive;
+font-size:70px;
+color:white;
+z-index:20;
+letter-spacing:4px;
+opacity:0;
+animation:titulo 7s infinite;
+text-shadow:3px 3px 10px rgba(0,0,0,0.3);
+}
+
+@keyframes titulo{
+0%{
+opacity:0;
+transform:translateY(50px);
+}
+
+70%{
+opacity:0;
+}
+
+85%{
+opacity:1;
+transform:translateY(0);
+}
+
+100%{
+opacity:1;
+}
+}
+
+.flor{
+width:240px;
+height:240px;
+position:absolute;
+top:260px;
+left:140px;
+background-image:url(img/flor.png);
+background-size:cover;
+z-index:4;
+opacity:0;
+animation:flor 7s infinite;
+}
+
+@keyframes flor{
+0%{
+opacity:0;
+transform:rotate(0deg) scale(0);
+}
+
+75%{
+opacity:0;
+transform:rotate(0deg) scale(0);
+}
+
+90%{
+opacity:1;
+transform:rotate(20deg) scale(1.1);
+}
+
+100%{
+opacity:1;
+transform:rotate(0deg) scale(1);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div class="sol"></div>
+
+<div class="palmeras"></div>
+
+<div class="text1">PRUEBA AHORA</div>
+<div class="text2">EL TROPICAL</div>
+<div class="text3">MIX</div>
+
+<div class="coco1"></div>
+<div class="coco2"></div>
+<div class="coco3"></div>
+<div class="coco4"></div>
+<div class="coco5"></div>
+
+<div class="flor"></div>
+
+<div class="titulo">COCO + VAINILLA</div>
+
+</div>
+
+</body>
+</html>
